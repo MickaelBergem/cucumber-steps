@@ -9,21 +9,18 @@
 
 ### Usage
 
-- Add dependencies `npm install --save-dev protractor cucumber chai`
-- Add protractor.conf (coffee example bellow)
-- Clone submodule `git submodule add git@github.com:atom-angular/cucumber-steps.git test/features/step_definitions/cucumber-steps`
-- Run protractor `webdriver-manager update && protractor --require coffee-script/register test/protractor.conf.coffee`
+```
+# Clone this repo into your project
+git submodule add git@github.com:atom-angular/cucumber-steps.git test/features/step_definitions/cucumber-steps
+# Copy sample protractor config and sample test
+cp test/features/step_definitions/cucumber-steps/default-protractor.conf.coffee test/protractor.conf.coffee
+cp test/features/step_definitions/cucumber-steps/default-homepage.feature test/features/homepage.feature
 
-```coffee
-module.exports.config =
-  framework: 'cucumber'
+# Download dependencies
+npm install --save-dev protractor cucumber chai
+# Download driver for selenium
+node_modules/.bin/webdriver-manager update
 
-  specs: [
-    'features/*.feature'
-  ]
-
-  capabilities:
-    browserName: process.env.BROWSER || 'firefox'
-
-  seleniumAddress: process.env.SELENIUM || null
+# Run test
+node_modules/.bin/protractor --require coffee-script/register test/protractor.conf.coffee
 ```
