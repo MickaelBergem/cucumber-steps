@@ -8,3 +8,12 @@ global.go = (url) ->
 
 global.xpath = (string) ->
   element By.xpath string
+
+global.find = (element, type) ->
+  switch type
+    when 'input'
+      search = """//#{type}[@id|@name|@data-ng-model|@placeholder|@ng-model="#{element}"]"""
+      return xpath search
+    else
+      search = """//*[contains(text(), "#{type}")]"""
+      return xpath search
