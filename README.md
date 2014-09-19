@@ -17,7 +17,7 @@ cp test/features/step_definitions/cucumber-steps/default-protractor.conf.coffee 
 cp test/features/step_definitions/cucumber-steps/default-homepage.feature test/features/homepage.feature
 
 # Download dependencies
-npm install --save-dev protractor cucumber chai
+npm install --save-dev protractor cucumber chai lodash
 # Download driver for selenium
 node_modules/.bin/webdriver-manager update
 

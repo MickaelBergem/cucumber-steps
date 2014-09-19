@@ -1,3 +1,4 @@
+global._ = require 'lodash'
 global.chai = require 'chai'
 global.assert = chai.assert
 
@@ -15,5 +16,5 @@ global.find = (element, type) ->
       search = """//#{type}[@id|@name|@data-ng-model|@placeholder|@ng-model="#{element}"]"""
       return xpath search
     else
-      search = """//*[contains(text(), "#{type}")]"""
+      search = """//*[text()="#{type}"]"""
       return xpath search
